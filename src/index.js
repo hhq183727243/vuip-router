@@ -110,7 +110,7 @@ class VuipRouter {
     _changeRouter(path) {
         if (path) window.history.pushState(null, null, path);
         this._initRouter();
-        this.$vm._reRender();
+        this.$vm.watcher.get();
     }
     back(n) {
         window.history(isDef(n) ? -1 : n);
