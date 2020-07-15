@@ -1,6 +1,6 @@
 {
   "name": "vuip-router",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "vuip SPA 应用简易路由实现",
   "main": "dist/vuip-router.min.js",
   "scripts": {

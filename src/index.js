@@ -101,7 +101,7 @@ class VuipRouter {
     // 将router 注册为全局组件
     _registerGlobalComponent() {
         for (let pathname in this.routes) {
-            this.routes[pathname]._name = this.routes[pathname].name + cid++;
+            this.routes[pathname]._name = (this.routes[pathname].name === undefined ? '' : this.routes[pathname].name) + cid++;
             Vuip.component('Compt_' + this.routes[pathname]._name, this.routes[pathname]);
         }
     }
@@ -110,7 +110,9 @@ class VuipRouter {
     _changeRouter(path) {
         if (path) window.history.pushState(null, null, path);
         this._initRouter();
-        this.$vm.watcher.get();
+        if (this.$vm) {
+            this.$vm.watcher.get();
+        }
     }
     back(n) {
         window.history(isDef(n) ? -1 : n);
