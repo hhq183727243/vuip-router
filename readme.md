@@ -54,7 +54,7 @@ this.$router.to(path: string, params:Object);
 组件更新修改，通过哨兵来触发视图更新
 ```
 
-+ 1.0.2
++ 1.0.3
 ```
 页面组件对应组件key生成规则修改
 ```
