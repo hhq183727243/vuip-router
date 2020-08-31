@@ -52,6 +52,13 @@ class VuipRouter {
         this._initRouter();
         this._registerGlobalComponent();
         $router = this;
+
+        // 浏览器后退事件监听
+        window.addEventListener('popstate', () => {
+            if ($router) {
+                $router.to();
+            }
+        })
     }
     static install(_Vuip) {
         Vuip = _Vuip;
@@ -122,12 +129,5 @@ class VuipRouter {
     }
 }
 
-// 浏览器后退事件监听
-window.onpopstate = function (e) {
-    console.log(e)
-    if ($router) {
-        $router.to();
-    }
-}
 
 export default VuipRouter;
